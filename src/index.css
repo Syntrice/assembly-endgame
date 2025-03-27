@@ -1,4 +1,14 @@
 @import "tailwindcss";
 @theme {
     --default-font-family: Inter, sans-serif;
+    --color-theme-background: #282726;
+    --color-theme-dark: #1D1E1E;
+    --color-theme-foreground: #F8F4D9;
+    --color-theme-faded: #8D8E8E;
+    --color-theme-amber: #FBB928;
+    --color-theme-red: #EB5D48;
+    --color-theme-darkred: #B92929;
+    --color-theme-green: #0FA85B;
+    --color-theme-purple: #795DA6;
+    --color-theme-blue: #0EB5E4;
 }
