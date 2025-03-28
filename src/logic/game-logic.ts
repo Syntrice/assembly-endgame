@@ -9,7 +9,7 @@ export enum GameState {
 export interface GameLogic {
     lives: number;
     correctWord: string;
-    guesses: Set<string>;
+    gussedLetters: Set<string>;
     gameState: GameState;
     guess: (letter: string) => void;
 }
@@ -24,7 +24,7 @@ export default function useGameLogic(): GameLogic {
     return {
         lives: 7,
         correctWord: "HELLO",
-        guesses: guesses,
+        gussedLetters: guesses,
         gameState: GameState.Win,
         guess: guess
     };

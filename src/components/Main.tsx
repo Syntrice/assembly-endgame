@@ -12,8 +12,8 @@ export default function Main() {
         <main className="flex flex-col gap-10">
             <StatusDisplay status={gameLogic.gameState} />
             <LifeIndicator lives={gameLogic.lives} />
-            <WordDisplay word={gameLogic.correctWord} />
-            <Keyboard onType={gameLogic.guess} guesses={gameLogic.guesses} correctWord={gameLogic.correctWord} />
+            <WordDisplay word={gameLogic.correctWord} guessedLetters={gameLogic.gussedLetters} />
+            <Keyboard onType={gameLogic.guess} guesses={gameLogic.gussedLetters} correctWord={gameLogic.correctWord} />
             <div className="flex justify-center">
                 <Button>Play Again</Button>
             </div>
