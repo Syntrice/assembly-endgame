@@ -14,7 +14,7 @@ export default function Main() {
             <StatusDisplay status={gameLogic.gameState} />
             <LifeIndicator lives={gameLogic.lives} />
             <WordDisplay word={gameLogic.word} />
-            <Keyboard />
+            <Keyboard onType={gameLogic.guess} />
             <div className="flex justify-center">
                 <Button>Play Again</Button>
             </div>

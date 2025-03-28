@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { GameState } from "../models/game-state";
 
 export interface GameLogic {
@@ -5,8 +6,22 @@ export interface GameLogic {
     word: string;
     gussedLetters: string[];
     gameState: GameState;
+    guess: (letter: string) => void;
 }
 
 export default function useGameLogic(): GameLogic {
-    return {lives: 7, word: "Hello", gussedLetters: [], gameState: GameState.Win };
+    const [guesses, setGuesses] = useState<string[]>([]);
+
+    function guess(letter: string) {
+        setGuesses(prev => [letter, ...prev]);
+        console.log(guesses);
+    }
+
+    return {
+        lives: 7,
+        word: "Hello",
+        gussedLetters: [],
+        gameState: GameState.Win,
+        guess: guess
+    };
 }
