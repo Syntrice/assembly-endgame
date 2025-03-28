@@ -22,7 +22,7 @@ export default function Key({ keyState, onClick, children }: KeyProps) {
     return (
         <button
             className={
-                "border-2 rounded-md border-theme-foreground flex w-10 h-10 justify-center items-center text-2xl" +
+                "text-theme-dark border-2 rounded-md border-theme-foreground flex w-10 h-10 justify-center items-center text-2xl shadow-2xl" +
                 keyColor()
             }
             onClick={onClick}
