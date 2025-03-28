@@ -16,7 +16,7 @@ export default function Main() {
             <WordDisplay word={gameLogic.word} />
             <Keyboard />
             <div className="flex justify-center">
-                <Button />
+                <Button>Play Again</Button>
             </div>
         </main>
     );
