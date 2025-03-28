@@ -16,16 +16,29 @@ export interface GameLogic {
 
 export default function useGameLogic(): GameLogic {
     const [guesses, setGuesses] = useState<Set<string>>(new Set());
+    const correctWord = "HELLO";
 
     function guess(letter: string) {
         setGuesses(prev => new Set(prev).add(letter));
     }
 
+    function getGameState() {
+        if (guesses.size === 8) {
+            return GameState.Lose;
+        }
+
+        if (correctWord.split("").every(letter => guesses.has(letter))) {
+            return GameState.Win;
+        }
+
+        return GameState.Playing;
+    }
+
     return {
-        lives: 7 - guesses.size,
-        correctWord: "HELLO",
+        lives: Math.max(0,8 - guesses.size),
+        correctWord: correctWord,
         gussedLetters: guesses,
-        gameState: GameState.Win,
+        gameState: getGameState(),
         guess: guess
     };
 }

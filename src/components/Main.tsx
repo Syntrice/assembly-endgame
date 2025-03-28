@@ -1,4 +1,4 @@
-import useGameLogic, { GameLogic } from "../logic/game-logic";
+import useGameLogic, { GameLogic, GameState } from "../logic/game-logic";
 import Button from "./common/Button";
 import Keyboard from "./keyboard/Keyboard";
 import LifeIndicator from "./life-indicator/LifeIndicator";
@@ -14,9 +14,11 @@ export default function Main() {
             <LifeIndicator lives={gameLogic.lives} />
             <WordDisplay word={gameLogic.correctWord} guessedLetters={gameLogic.gussedLetters} />
             <Keyboard onType={gameLogic.guess} guesses={gameLogic.gussedLetters} correctWord={gameLogic.correctWord} />
-            <div className="flex justify-center">
-                <Button>Play Again</Button>
-            </div>
+            {gameLogic.gameState === GameState.Lose || gameLogic.gameState === GameState.Win && (
+                <div className="flex justify-center">
+                    <Button>Play Again</Button>
+                </div>
+            )}
         </main>
     );
 }
