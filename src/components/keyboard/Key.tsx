@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyState } from "../../models/key-state";
+import { KeyState } from "../../logic/game-logic";
 
 interface KeyProps {
     keyState: KeyState;
@@ -8,7 +8,7 @@ interface KeyProps {
 }
 
 export default function Key({ keyState, onClick, children }: KeyProps) {
-    const keyColor = () => {
+    function getKeyColor() {
         switch (keyState) {
             case KeyState.Correct:
                 return " bg-theme-green";
@@ -17,15 +17,24 @@ export default function Key({ keyState, onClick, children }: KeyProps) {
             case KeyState.Unknown:
                 return " bg-theme-amber";
         }
-    };
+    }
+
+    function isKeyDisabled() {
+        if (keyState === KeyState.Correct || keyState === KeyState.Incorrect) {
+            return true;
+        }
+        return false;
+    }
 
     return (
         <button
             className={
                 "text-theme-dark border-2 rounded-md border-theme-foreground flex w-10 h-10 justify-center items-center text-2xl shadow-2xl" +
-                keyColor()
+                getKeyColor()
             }
             onClick={onClick}
+            disabled={isKeyDisabled()}
+            aria-disabled={isKeyDisabled()}
         >
             {children}
         </button>

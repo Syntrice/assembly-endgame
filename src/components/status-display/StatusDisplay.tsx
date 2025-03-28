@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { GameState } from "../../models/game-state";
+import { GameState } from "../../logic/game-logic";
 
 interface StatusDisplayProps {
     status: GameState;

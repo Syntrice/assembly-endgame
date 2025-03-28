@@ -6,15 +6,14 @@ import StatusDisplay from "./status-display/StatusDisplay";
 import WordDisplay from "./word-display/WordDisplay";
 
 export default function Main() {
-
-    const gameLogic: GameLogic = useGameLogic();
+    const gameLogic = useGameLogic();
 
     return (
         <main className="flex flex-col gap-10">
             <StatusDisplay status={gameLogic.gameState} />
             <LifeIndicator lives={gameLogic.lives} />
-            <WordDisplay word={gameLogic.word} />
-            <Keyboard onType={gameLogic.guess} />
+            <WordDisplay word={gameLogic.correctWord} />
+            <Keyboard onType={gameLogic.guess} guesses={gameLogic.guesses} correctWord={gameLogic.correctWord} />
             <div className="flex justify-center">
                 <Button>Play Again</Button>
             </div>

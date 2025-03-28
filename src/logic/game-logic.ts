@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { GameState } from "../models/game-state";
+
+export enum GameState {
+    Playing,
+    Win,
+    Lose
+};
 
 export interface GameLogic {
     lives: number;
-    word: string;
-    gussedLetters: string[];
+    correctWord: string;
+    guesses: Set<string>;
     gameState: GameState;
     guess: (letter: string) => void;
 }
@@ -13,15 +18,21 @@ export default function useGameLogic(): GameLogic {
     const [guesses, setGuesses] = useState<Set<string>>(new Set());
 
     function guess(letter: string) {
-        setGuesses(prev => prev.add(letter));
-        console.log(guesses);
+        setGuesses(prev => new Set(prev).add(letter));
     }
 
     return {
         lives: 7,
-        word: "Hello",
-        gussedLetters: [],
+        correctWord: "HELLO",
+        guesses: guesses,
         gameState: GameState.Win,
         guess: guess
     };
 }
+
+export enum KeyState {
+    Unknown,
+    Correct,
+    Incorrect,
+}
+
