@@ -9,7 +9,7 @@ export default function Main() {
     return (
         <main className="flex flex-col gap-10">
             <StatusDisplay status={GameState.Win} />
-            <LifeIndicator />
+            <LifeIndicator lives={7} />
             <WordDisplay />
             <Keyboard />
             <div className="flex justify-center">
