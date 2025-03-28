@@ -22,7 +22,7 @@ export default function useGameLogic(): GameLogic {
     }
 
     return {
-        lives: 7,
+        lives: 7 - guesses.size,
         correctWord: "HELLO",
         gussedLetters: guesses,
         gameState: GameState.Win,
