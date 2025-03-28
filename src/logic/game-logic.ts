@@ -10,10 +10,10 @@ export interface GameLogic {
 }
 
 export default function useGameLogic(): GameLogic {
-    const [guesses, setGuesses] = useState<string[]>([]);
+    const [guesses, setGuesses] = useState<Set<string>>(new Set());
 
     function guess(letter: string) {
-        setGuesses(prev => [letter, ...prev]);
+        setGuesses(prev => prev.add(letter));
         console.log(guesses);
     }
 
