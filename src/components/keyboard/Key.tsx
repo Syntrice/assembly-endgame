@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyState } from "../../models/keyState";
+import { KeyState } from "../../models/key-state";
 
 interface KeyProps {
     keyState: KeyState;

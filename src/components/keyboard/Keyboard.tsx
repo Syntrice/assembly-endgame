@@ -1,4 +1,4 @@
-import { KeyState } from "../../models/keyState";
+import { KeyState } from "../../models/key-state";
 import Key from "./Key";
 
 export default function Keyboard() {

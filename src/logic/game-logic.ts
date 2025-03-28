@@ -1,4 +1,4 @@
-import { GameState } from "../models/gameState";
+import { GameState } from "../models/game-state";
 
 export interface GameLogic {
     lives: number;
