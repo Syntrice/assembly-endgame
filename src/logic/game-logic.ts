@@ -12,6 +12,7 @@ export interface GameLogic {
     gussedLetters: Set<string>;
     gameState: GameState;
     guess: (letter: string) => void;
+    restart: () => void;
 }
 
 export default function useGameLogic(): GameLogic {
@@ -20,6 +21,10 @@ export default function useGameLogic(): GameLogic {
 
     function guess(letter: string) {
         setGuesses(prev => new Set(prev).add(letter));
+    }
+
+    function restart() {
+        setGuesses(new Set())
     }
 
     function getGameState() {
@@ -39,7 +44,8 @@ export default function useGameLogic(): GameLogic {
         correctWord: correctWord,
         gussedLetters: guesses,
         gameState: getGameState(),
-        guess: guess
+        guess: guess,
+        restart: restart
     };
 }
 

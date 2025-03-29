@@ -16,7 +16,7 @@ export default function Main() {
             <Keyboard onType={gameLogic.guess} guesses={gameLogic.gussedLetters} correctWord={gameLogic.correctWord} />
             {gameLogic.gameState === GameState.Lose || gameLogic.gameState === GameState.Win && (
                 <div className="flex justify-center">
-                    <Button>Play Again</Button>
+                    <Button onClick={gameLogic.restart}>Play Again</Button>
                 </div>
             )}
         </main>
